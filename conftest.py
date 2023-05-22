@@ -4,17 +4,20 @@ from selenium.webdriver.firefox.options import Options
 
 
 @pytest.fixture()
-def driver(request):
+def do(request):
+    data = []
+    data.append(request)
     # Firefox driver
     options = Options()
     #options.headless = False
     options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
     driver_path = r'C:\geckodriver\geckodriver.exe'
-    driver = webdriver.Firefox(executable_path=driver_path, options=options)
+    drvr = webdriver.Firefox(executable_path=driver_path, options=options)
+    data.append(drvr)
 
-    yield driver
+    yield data
 
-    driver.quit()
+    drvr.quit()
 
 
 def pytest_addoption(parser):
