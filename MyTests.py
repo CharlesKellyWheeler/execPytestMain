@@ -3,7 +3,9 @@ def test_title(do):
     request = do[0]
     driver = do[1]
     driver.get('https://www.example.com')
-    test_data = request.config.getoption('test_data')
+    #test_data = request.config.getoption('test_data')
+    test_data = request.config.getoption('test_data')[0]
+
 
     print(f"testing:{test_data}")
     assert driver.title == 'Example Domain'

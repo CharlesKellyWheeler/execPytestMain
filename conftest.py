@@ -22,7 +22,8 @@ def do(request):
 
 def pytest_addoption(parser):
     parser.addoption("--test-name", action="store", help="Name of the test method to execute.")
-    parser.addoption("--test-data", action="store", help="Additional data to pass.")
+    #parser.addoption("--test-data", action="store", help="Additional data to pass.")
+    parser.addoption("--test-data", action="append", nargs="+", help="Additional data to pass.")
 
 
 def pytest_configure(config):

@@ -6,10 +6,13 @@ if __name__ == "__main__":
     test_name = "test_title"  # Replace with your desired test name
 
     # Specify test data to be passed
-    test_data = "test-data"  # Replace with your desired test data
+    # test_data = "test-data"  # Replace with your desired test data
+    test_data = ["a", "b", "c"]  # Replace with your desired test data
 
     # Pass the test name and test data as command-line arguments
-    pytest_args = ["-v", "--test-name", test_name,  "-k", test_name, "--test-data", test_data, "MyTests.py"]
+    # pytest_args = ["-v", "--test-name", test_name,  "-k", test_name, "--test-data", test_data, "MyTests.py"]
+    pytest_args = ["-v", "--test-name", test_name, "--test-data"] + test_data + ["-k", test_name, "MyTests.py"]
+
 
     # Execute the test
     pytest.main(pytest_args)
